@@ -43,7 +43,6 @@ async function run() {
         app.put('/UpdatedUser/:id', async (req, res) => {
             const id = req.params.id;
             const user = req.body;
-            // const password = req.query.password;
             const query = { _id: ObjectId(id) }
             const options = { upsert: true }
             const updatedDoc = {
@@ -54,7 +53,6 @@ async function run() {
                 }
             }
             const result = await UsersCollection.updateOne(query, updatedDoc, options);
-            console.log(result);
             res.send(result)
         })
 
